@@ -72,11 +72,6 @@ body {
   border: none;
   border-radius: 14px;
   box-shadow: 0 4px 14px rgba(0,0,0,0.09);
-  transition: transform 0.25s ease, box-shadow 0.25s ease;
-}
-.card-servico:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 8px 22px rgba(0,0,0,0.15);
 }
 .card-servico .card-header {
   background-color: var(--verde-petshop);
@@ -98,9 +93,7 @@ body {
   border: none;
   border-radius: 12px;
   box-shadow: 0 3px 10px rgba(0,0,0,0.08);
-  transition: transform 0.2s ease;
 }
-.card-produto:hover { transform: scale(1.03); }
 .card-produto img {
   border-radius: 12px 12px 0 0;
   height: 180px;
