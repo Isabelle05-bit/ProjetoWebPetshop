@@ -101,4 +101,4 @@ O projeto implementa os seguintes requisitos de acessibilidade para deficientes 
 ## 👩‍💻 Autora
 
 **Isabelle Trampusch Bernardo**  
-📧 comercial@BomPraPet.com
+
