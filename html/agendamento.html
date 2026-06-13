@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<!--
+  html/agendamento.html – BomPraPet PetShop | Fase 2
+  Autor: Isabelle Trampusch Bernardo
+  Descrição: Agendamento de Banho ou Tosa com escolha de método
+             (tele-busca / entrega no local) e calendário (Aula 6).
+             Validação via script.js. Pré-seleção por URL ?servico=banho|tosa.
+-->
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Agendamento – BomPraPet</title>
+  <link rel="stylesheet" href="../assets/css/bootstrap/bootstrap.min.css">
+  <link rel="stylesheet" href="../assets/css/bootstrap/bootstrap-icons.min.css">
+  <link rel="stylesheet" href="../assets/css/nunito.css">
+  <link rel="stylesheet" href="../assets/css/estilo.css">
+</head>
+
+<body>
+
+  <!-- NAVBAR -->
+  <nav class="navbar navbar-expand-lg navbar-bomprapet"
+       role="navigation" aria-label="Menu principal">
+    <div class="container">
+      <a class="navbar-brand d-flex align-items-center gap-2" href="index.html">
+        <i class="bi bi-heart-fill" aria-hidden="true"></i>
+        PetShop BomPraPet
+      </a>
+      <button class="navbar-toggler" type="button"
+              data-bs-toggle="collapse" data-bs-target="#menuNavbar"
+              aria-controls="menuNavbar" aria-expanded="false"
+              aria-label="Abrir ou fechar menu de navegação">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="menuNavbar">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item">
+            <a class="nav-link" href="index.html">
+              <i class="bi bi-house-fill" aria-hidden="true"></i> Início
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="servicos.html">
+              <i class="bi bi-scissors" aria-hidden="true"></i> Serviços
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="agendamento.html">
+              <i class="bi bi-calendar-check-fill" aria-hidden="true"></i> Agendamento
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="cadastro.html">
+              <i class="bi bi-person-plus-fill" aria-hidden="true"></i> Cadastro
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+
+  <!-- CONTEÚDO PRINCIPAL -->
+  <main id="conteudo-principal" tabindex="-1" class="container my-5">
+
+    <h1 class="fw-bold text-center mb-1" style="color:var(--verde-petshop)">
+      <i class="bi bi-calendar-check-fill" aria-hidden="true"></i> Agendar Serviço
+    </h1>
+    <p class="text-center text-muted mb-4">
+      Escolha o serviço, o método de coleta e a data/horário desejado.<br>
+      Campos com <span class="text-danger" aria-hidden="true">*</span>
+      <span class="visually-hidden">asterisco</span> são obrigatórios.
+    </p>
+    <hr class="divisor-verde">
+
+
+    <!-- O id "form-cadastro" é usado pelo script.js para validação -->
+    <form id="form-cadastro" novalidate aria-label="Formulário de agendamento">
+
+
+      <!-- -----------------------------------------------
+           IDENTIFICAÇÃO DO CLIENTE
+      ----------------------------------------------- -->
+      <div class="secao-formulario mb-4">
+        <h2 class="h4 mb-3">
+          <i class="bi bi-person-fill" aria-hidden="true"></i>
+          Seus Dados
+        </h2>
+        <p class="text-muted small mb-3">
+          Ainda não tem cadastro?
+          <a href="cadastro.html">Cadastre-se aqui</a>.
+        </p>
+
+        <div class="row g-3">
+          <div class="col-md-6">
+            <label for="cliente-nome" class="form-label">
+              Nome completo <span class="text-danger" aria-hidden="true">*</span>
+            </label>
+            <input type="text" id="cliente-nome" name="cliente-nome"
+                   class="form-control" placeholder="Ex.: Maria da Silva"
+                   required aria-required="true">
+            <div class="invalid-feedback">Informe seu nome.</div>
+          </div>
+          <div class="col-md-3">
+            <label for="cliente-cpf" class="form-label">
+              CPF <span class="text-danger" aria-hidden="true">*</span>
+            </label>
+            <input type="text" id="cliente-cpf" name="cliente-cpf"
+                   class="form-control" placeholder="000.000.000-00"
+                   required aria-required="true" maxlength="14" inputmode="numeric">
+            <div class="invalid-feedback">Informe seu CPF.</div>
+          </div>
+          <div class="col-md-3">
+            <label for="cliente-telefone" class="form-label">
+              Telefone <span class="text-danger" aria-hidden="true">*</span>
+            </label>
+            <input type="tel" id="cliente-telefone" name="cliente-telefone"
+                   class="form-control" placeholder="(51) 99999-9999"
+                   required aria-required="true" maxlength="15">
+            <div class="invalid-feedback">Informe seu telefone.</div>
+          </div>
+          <div class="col-md-6">
+            <label for="cliente-email" class="form-label">
+              E-mail <span class="text-danger" aria-hidden="true">*</span>
+            </label>
+            <input type="email" id="cliente-email" name="cliente-email"
+                   class="form-control" placeholder="seuemail@exemplo.com"
+                   required aria-required="true">
+            <div class="invalid-feedback">Informe seu e-mail.</div>
+          </div>
+          <div class="col-md-6">
+            <label for="cliente-endereco" class="form-label">
+              Endereço <span class="text-danger" aria-hidden="true">*</span>
+              <span class="text-muted small">(necessário para tele-busca)</span>
+            </label>
+            <input type="text" id="cliente-endereco" name="cliente-endereco"
+                   class="form-control" placeholder="Rua, número, bairro, cidade"
+                   required aria-required="true">
+            <div class="invalid-feedback">Informe seu endereço.</div>
+          </div>
+        </div>
+
+        <!-- Dados do pet para agendamento -->
+        <div class="row g-3 mt-1">
+          <div class="col-md-4">
+            <label for="pet-nome" class="form-label">
+              Nome do pet <span class="text-danger" aria-hidden="true">*</span>
+            </label>
+            <input type="text" id="pet-nome" name="pet-nome"
+                   class="form-control" placeholder="Ex.: Rex"
+                   required aria-required="true">
+            <div class="invalid-feedback">Informe o nome do pet.</div>
+          </div>
+          <div class="col-md-4">
+            <label for="pet-raca" class="form-label">
+              Raça <span class="text-danger" aria-hidden="true">*</span>
+            </label>
+            <input type="text" id="pet-raca" name="pet-raca"
+                   class="form-control" placeholder="Ex.: Poodle"
+                   required aria-required="true">
+            <div class="invalid-feedback">Informe a raça.</div>
+          </div>
+          <div class="col-md-4">
+            <!-- input type="number" – Aula 6 -->
+            <label for="pet-idade" class="form-label">
+              Idade do pet (anos) <span class="text-danger" aria-hidden="true">*</span>
+            </label>
+            <input type="number" id="pet-idade" name="pet-idade"
+                   class="form-control" placeholder="Ex.: 2"
+                   min="0" max="30" required aria-required="true">
+            <div class="invalid-feedback">Informe a idade.</div>
+          </div>
+        </div>
+
+      </div>
+
+
+      <!-- -----------------------------------------------
+           ESCOLHA DO SERVIÇO (radio button – Aula 6)
+      ----------------------------------------------- -->
+      <div class="secao-formulario mb-4">
+        <h2 class="h4 mb-3">
+          <i class="bi bi-scissors" aria-hidden="true"></i>
+          Serviço <span class="text-danger" aria-hidden="true">*</span>
+        </h2>
+
+        <div class="row g-3">
+
+          <!-- Banho -->
+          <div class="col-md-6">
+            <div class="card card-servico h-100">
+              <div class="card-body d-flex align-items-start gap-3">
+                <input class="form-check-input mt-1" type="radio"
+                       name="servico" id="servico-banho" value="banho"
+                       aria-describedby="desc-banho">
+                <div>
+                  <label class="form-check-label fw-bold fs-5" for="servico-banho">
+                    <i class="bi bi-droplet-fill text-success" aria-hidden="true"></i>
+                    Banho
+                  </label>
+                  <p id="desc-banho" class="mb-1 text-muted small">
+                    Banho completo com shampoo, condicionador, secagem e escovação.
+                  </p>
+                  <p class="mb-0 fw-bold text-success">R$ 50,00</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Tosa -->
+          <div class="col-md-6">
+            <div class="card card-servico h-100">
+              <div class="card-body d-flex align-items-start gap-3">
+                <input class="form-check-input mt-1" type="radio"
+                       name="servico" id="servico-tosa" value="tosa"
+                       aria-describedby="desc-tosa">
+                <div>
+                  <label class="form-check-label fw-bold fs-5" for="servico-tosa">
+                    <i class="bi bi-scissors text-primary" aria-hidden="true"></i>
+                    Tosa
+                  </label>
+                  <p id="desc-tosa" class="mb-1 text-muted small">
+                    Tosa profissional com corte personalizado por tosadores experientes.
+                  </p>
+                  <p class="mb-0 fw-bold text-success">R$ 70,00</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+        <div id="servico-feedback" class="text-danger small mt-2" style="display:none">
+          Selecione um serviço.
+        </div>
+      </div>
+
+
+      <!-- -----------------------------------------------
+           MÉTODO DE AGENDAMENTO (radio button – Aula 6)
+      ----------------------------------------------- -->
+      <div class="secao-formulario mb-4">
+        <h2 class="h4 mb-3">
+          <i class="bi bi-truck" aria-hidden="true"></i>
+          Método de Entrega <span class="text-danger" aria-hidden="true">*</span>
+        </h2>
+
+        <div class="row g-3">
+
+          <!-- Tele-busca -->
+          <div class="col-md-6">
+            <div class="card card-servico h-100">
+              <div class="card-body d-flex align-items-start gap-3">
+                <input class="form-check-input mt-1" type="radio"
+                       name="metodo" id="metodo-telebusca" value="telebusca"
+                       aria-describedby="desc-telebusca">
+                <div>
+                  <label class="form-check-label fw-bold" for="metodo-telebusca">
+                    <i class="bi bi-truck text-warning" aria-hidden="true"></i>
+                    Tele-busca
+                  </label>
+                  <p id="desc-telebusca" class="mb-0 text-muted small">
+                    Buscamos seu pet no endereço informado e devolvemos após o serviço.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Entrega no local -->
+          <div class="col-md-6">
+            <div class="card card-servico h-100">
+              <div class="card-body d-flex align-items-start gap-3">
+                <input class="form-check-input mt-1" type="radio"
+                       name="metodo" id="metodo-local" value="local"
+                       aria-describedby="desc-local">
+                <div>
+                  <label class="form-check-label fw-bold" for="metodo-local">
+                    <i class="bi bi-shop text-info" aria-hidden="true"></i>
+                    Entrega no local
+                  </label>
+                  <p id="desc-local" class="mb-0 text-muted small">
+                    Você traz seu pet até o BomPraPet e busca após o serviço.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+        <div id="metodo-feedback" class="text-danger small mt-2" style="display:none">
+          Selecione um método de agendamento.
+        </div>
+      </div>
+
+
+      <!-- -----------------------------------------------
+           DATA E HORA (input datetime-local – Aula 6)
+      ----------------------------------------------- -->
+      <div class="secao-formulario mb-4">
+        <h2 class="h4 mb-3">
+          <i class="bi bi-calendar3" aria-hidden="true"></i>
+          Data e Horário <span class="text-danger" aria-hidden="true">*</span>
+        </h2>
+        <div class="row g-3">
+          <div class="col-md-5">
+            <label for="data-agendamento" class="form-label">
+              Selecione data e horário
+            </label>
+            <!-- Calendário com seleção de data e hora -->
+            <input type="datetime-local" id="data-agendamento"
+                   name="data-agendamento"
+                   class="form-control"
+                   required aria-required="true"
+                   aria-describedby="data-feedback">
+            <div id="data-feedback" class="invalid-feedback">
+              Selecione uma data e horário para o atendimento.
+            </div>
+            <div class="form-text">
+              <i class="bi bi-info-circle" aria-hidden="true"></i>
+              Horários disponíveis: segunda a sábado, das 8h às 18h.
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+      <!-- BOTÃO ENVIAR -->
+      <div class="text-center mt-4">
+        <button type="submit" class="btn btn-agendar px-5 py-2 fs-5"
+                aria-label="Confirmar agendamento">
+          <i class="bi bi-calendar-check-fill" aria-hidden="true"></i>
+          Confirmar Agendamento
+        </button>
+      </div>
+
+    </form>
+
+  </main>
+
+
+  <!-- Toast de confirmação -->
+  <div id="toast-confirmacao"
+       class="toast align-items-center text-bg-success border-0"
+       role="status" aria-live="polite" aria-atomic="true">
+    <div class="d-flex">
+      <div class="toast-body">
+        <i class="bi bi-check-circle-fill" aria-hidden="true"></i>
+        <strong>Agendamento realizado!</strong><br>
+        Entraremos em contato para confirmar.
+      </div>
+      <button type="button" class="btn-close btn-close-white me-2 m-auto"
+              data-bs-dismiss="toast" aria-label="Fechar notificação"></button>
+    </div>
+  </div>
+
+
+  <!-- RODAPÉ -->
+  <footer class="py-4 mt-4">
+    <div class="container text-center">
+      <p class="mb-1">
+        <i class="bi bi-heart-fill" aria-hidden="true"></i>
+        <strong>PetShop BomPraPet</strong>
+      </p>
+      <p class="mb-1 small">
+        <a href="mailto:comercial@BomPraPet.com">comercial@BomPraPet.com</a>
+      </p>
+      <p class="mb-0 small opacity-75">Aluna: Isabelle Trampusch Bernardo &copy; 2025</p>
+    </div>
+  </footer>
+
+  <script src="../js/bootstrap.bundle.min.js"></script>
+  <script src="../js/script.js" defer></script>
+
+  <!-- Pré-seleciona serviço via URL e configura datas do calendário -->
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+
+      // Pré-seleção por parâmetro URL ?servico=banho ou ?servico=tosa
+      const params = new URLSearchParams(window.location.search);
+      const servico = params.get('servico');
+      if (servico === 'banho') document.getElementById('servico-banho').checked = true;
+      if (servico === 'tosa')  document.getElementById('servico-tosa').checked  = true;
+
+      // Define data mínima = hoje e máxima = 3 meses à frente
+      const dataInput = document.getElementById('data-agendamento');
+      if (dataInput) {
+        const pad = n => String(n).padStart(2, '0');
+        const hoje = new Date();
+        const min = `${hoje.getFullYear()}-${pad(hoje.getMonth()+1)}-${pad(hoje.getDate())}T08:00`;
+        const max3m = new Date(hoje); max3m.setMonth(max3m.getMonth() + 3);
+        const max = `${max3m.getFullYear()}-${pad(max3m.getMonth()+1)}-${pad(max3m.getDate())}T18:00`;
+        dataInput.min = min;
+        dataInput.max = max;
+      }
+
+    });
+  </script>
+
+</body>
+</html>

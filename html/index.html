@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<!--
+  html/index.html – BomPraPet PetShop | Fase 2
+  Autor: Isabelle Trampusch Bernardo
+  Base: código original da Fase 1 (index.html)
+  Fase 2: adicionados Bootstrap, carrossel, relógio JS e cards de produtos
+-->
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PetShop BomPraPet</title>
+
+  <!-- Bootstrap CSS (arquivo local) -->
+  <link rel="stylesheet" href="../assets/css/bootstrap/bootstrap.min.css">
+
+  <!-- Bootstrap Icons (arquivo local) -->
+  <link rel="stylesheet" href="../assets/css/bootstrap/bootstrap-icons.min.css">
+
+  <!-- Fonte Nunito (arquivo local) -->
+  <link rel="stylesheet" href="../assets/css/nunito.css">
+
+  <!-- CSS personalizado -->
+  <link rel="stylesheet" href="../assets/css/estilo.css">
+</head>
+
+<body>
+
+  <!-- ======================================================
+       NAVBAR
+       Bootstrap: navbar responsiva com hambúrguer no mobile
+       Acessibilidade: role, aria-label (Aula 10)
+  ====================================================== -->
+  <nav class="navbar navbar-expand-lg navbar-bomprapet"
+       role="navigation" aria-label="Menu principal">
+    <div class="container">
+
+      <a class="navbar-brand d-flex align-items-center gap-2" href="index.html">
+        <i class="bi bi-heart-fill" aria-hidden="true"></i>
+        PetShop BomPraPet
+      </a>
+
+      <!-- Botão hambúrguer (mobile) -->
+      <button class="navbar-toggler" type="button"
+              data-bs-toggle="collapse" data-bs-target="#menuNavbar"
+              aria-controls="menuNavbar" aria-expanded="false"
+              aria-label="Abrir ou fechar menu de navegação">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="menuNavbar">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="index.html">
+              <i class="bi bi-house-fill" aria-hidden="true"></i> Início
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="servicos.html">
+              <i class="bi bi-scissors" aria-hidden="true"></i> Serviços
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="agendamento.html">
+              <i class="bi bi-calendar-check-fill" aria-hidden="true"></i> Agendamento
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="cadastro.html">
+              <i class="bi bi-person-plus-fill" aria-hidden="true"></i> Cadastro
+            </a>
+          </li>
+        </ul>
+      </div>
+
+    </div>
+  </nav>
+
+
+  <!-- ======================================================
+       RELÓGIO E SAUDAÇÃO (JavaScript – Aula 9)
+       Atualizado automaticamente a cada 1 segundo via script.js
+  ====================================================== -->
+  <div class="container my-3 text-center">
+    <div id="relogio-container" aria-live="polite" aria-label="Data e hora atual">
+      <i class="bi bi-clock" aria-hidden="true"></i>
+      <span id="relogio">Carregando...</span>
+    </div>
+    <p id="saudacao" class="mt-2 fw-semibold fs-5" aria-live="polite"></p>
+  </div>
+
+
+  <!-- ======================================================
+       CARROSSEL (Bootstrap – Aulas 7 e 8)
+       Apresenta os destaques do petshop com slides automáticos.
+       Acessibilidade: aria-label nos botões e alt nas imagens
+  ====================================================== -->
+  <section aria-label="Carrossel de destaques do BomPraPet">
+    <div id="carrosselPrincipal"
+         class="carousel slide"
+         data-bs-ride="carousel"
+         data-bs-interval="4000">
+
+      <!-- Indicadores -->
+      <div class="carousel-indicators">
+        <button type="button" data-bs-target="#carrosselPrincipal"
+                data-bs-slide-to="0" class="active"
+                aria-current="true" aria-label="Slide 1 – Banho e Tosa"></button>
+        <button type="button" data-bs-target="#carrosselPrincipal"
+                data-bs-slide-to="1" aria-label="Slide 2 – Tele-busca"></button>
+        <button type="button" data-bs-target="#carrosselPrincipal"
+                data-bs-slide-to="2" aria-label="Slide 3 – Produtos"></button>
+      </div>
+
+      <div class="carousel-inner">
+
+        <!-- Slide 1 -->
+        <div class="carousel-item active">
+          <img src="https://placehold.co/1200x420/2e7d50/ffffff?text=Banho+%26+Tosa"
+               class="d-block w-100"
+               alt="Cachorro sendo banhado por profissional no petshop BomPraPet">
+          <div class="carousel-caption d-none d-md-block">
+            <h2>Banho &amp; Tosa Profissional</h2>
+            <p>Cuide do seu melhor amigo com carinho e qualidade.</p>
+            <a href="agendamento.html" class="btn btn-warning fw-bold">Agendar agora</a>
+          </div>
+        </div>
+
+        <!-- Slide 2 -->
+        <div class="carousel-item">
+          <img src="https://placehold.co/1200x420/f97316/ffffff?text=Tele-busca+e+Entrega"
+               class="d-block w-100"
+               alt="Van do BomPraPet realizando serviço de tele-busca de pet">
+          <div class="carousel-caption d-none d-md-block">
+            <h2>Tele-busca Disponível</h2>
+            <p>Buscamos e entregamos seu pet com toda segurança.</p>
+            <a href="agendamento.html" class="btn btn-light fw-bold">Saiba mais</a>
+          </div>
+        </div>
+
+        <!-- Slide 3 -->
+        <div class="carousel-item">
+          <img src="https://placehold.co/1200x420/4caf80/ffffff?text=Produtos+Premium"
+               class="d-block w-100"
+               alt="Prateleira com produtos premium para pets: rações, brinquedos e higiene">
+          <div class="carousel-caption d-none d-md-block">
+            <h2>Produtos de Qualidade</h2>
+            <p>Rações, brinquedos e higiene para o seu companheiro.</p>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Controles anterior / próximo -->
+      <button class="carousel-control-prev" type="button"
+              data-bs-target="#carrosselPrincipal" data-bs-slide="prev"
+              aria-label="Slide anterior">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      </button>
+      <button class="carousel-control-next" type="button"
+              data-bs-target="#carrosselPrincipal" data-bs-slide="next"
+              aria-label="Próximo slide">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      </button>
+
+    </div>
+  </section>
+
+
+  <!-- ======================================================
+       PRODUTOS (mantido da Fase 1, agora com cards Bootstrap)
+       Acessibilidade: alt descritivo em todas as imagens (Aula 10)
+  ====================================================== -->
+  <main id="conteudo-principal" tabindex="-1">
+    <div class="container my-5">
+
+      <h2 class="fw-bold text-center mb-1" style="color:var(--verde-petshop)">
+        Produtos
+      </h2>
+      <hr class="divisor-verde">
+
+
+      <!-- Categoria: Rações -->
+      <h3 class="fw-bold mb-3">
+        <i class="bi bi-bag-heart-fill text-success" aria-hidden="true"></i>
+        Categoria: Rações
+      </h3>
+      <div class="row row-cols-1 row-cols-sm-2 row-cols-md-4 g-4 mb-5">
+
+        <div class="col">
+          <div class="card card-produto h-100">
+            <!-- alt descritivo – acessibilidade para deficientes visuais (Aula 10) -->
+            <img src="../assets/imagens/racao.jpg"
+                 class="card-img-top"
+                 alt="Pacote de ração premium para cães adultos, cor marrom">
+            <div class="card-body">
+              <h5 class="card-title">Ração Premium</h5>
+              <p class="card-text text-success fw-bold">R$ 120,00</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="col">
+          <div class="card card-produto h-100">
+            <img src="../assets/imagens/racaoI.jpg"
+                 class="card-img-top"
+                 alt="Pacote de ração especial para cães filhotes">
+            <div class="card-body">
+              <h5 class="card-title">Ração Filhotes</h5>
+              <p class="card-text text-success fw-bold">R$ 90,00</p>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+
+      <!-- Categoria: Brinquedos -->
+      <h3 class="fw-bold mb-3">
+        <i class="bi bi-controller text-warning" aria-hidden="true"></i>
+        Categoria: Brinquedos
+      </h3>
+      <div class="row row-cols-1 row-cols-sm-2 row-cols-md-4 g-4 mb-5">
+
+        <div class="col">
+          <div class="card card-produto h-100">
+            <img src="../assets/imagens/brinquedo.jpg"
+                 class="card-img-top"
+                 alt="Bolinha colorida de borracha para pets">
+            <div class="card-body">
+              <h5 class="card-title">Bolinha</h5>
+              <p class="card-text text-success fw-bold">R$ 20,00</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="col">
+          <div class="card card-produto h-100">
+            <img src="../assets/imagens/brinquedoI.jpg"
+                 class="card-img-top"
+                 alt="Corda colorida de algodão para cães brincarem e roer">
+            <div class="card-body">
+              <h5 class="card-title">Corda para Pets</h5>
+              <p class="card-text text-success fw-bold">R$ 25,00</p>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+
+      <!-- Categoria: Higiene -->
+      <h3 class="fw-bold mb-3">
+        <i class="bi bi-droplet-fill text-info" aria-hidden="true"></i>
+        Categoria: Higiene
+      </h3>
+      <div class="row row-cols-1 row-cols-sm-2 row-cols-md-4 g-4 mb-5">
+
+        <div class="col">
+          <div class="card card-produto h-100">
+            <img src="../assets/imagens/shampoo.jpg"
+                 class="card-img-top"
+                 alt="Frasco de shampoo neutro para pets com fórmula suave">
+            <div class="card-body">
+              <h5 class="card-title">Shampoo Pet</h5>
+              <p class="card-text text-success fw-bold">R$ 30,00</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="col">
+          <div class="card card-produto h-100">
+            <img src="../assets/imagens/shampooI.jpg"
+                 class="card-img-top"
+                 alt="Sabonete em barra hipoalergênico para cuidado com a pele dos pets">
+            <div class="card-body">
+              <h5 class="card-title">Sabonete Pet</h5>
+              <p class="card-text text-success fw-bold">R$ 15,00</p>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </main>
+
+
+  <!-- RODAPÉ (mantido da Fase 1) -->
+  <footer class="py-4 mt-4">
+    <div class="container text-center">
+      <p class="mb-1">
+        <i class="bi bi-heart-fill" aria-hidden="true"></i>
+        <strong>PetShop BomPraPet</strong>
+      </p>
+      <p class="mb-1 small">
+        <a href="mailto:comercial@BomPraPet.com">comercial@BomPraPet.com</a>
+      </p>
+      <p class="mb-0 small opacity-75">Aluna: Isabelle Trampusch Bernardo &copy; 2025</p>
+    </div>
+  </footer>
+
+
+  <!-- Bootstrap JS (arquivo local) -->
+  <script src="../js/bootstrap.bundle.min.js"></script>
+
+  <!-- Script do projeto (defer = executa após HTML carregar) -->
+  <script src="../js/script.js" defer></script>
+
+</body>
+</html>

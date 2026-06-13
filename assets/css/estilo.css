@@ -1,0 +1,174 @@
+/* ============================================================
+   estilo.css – BomPraPet PetShop | Fase 2
+   Autor: Isabelle Trampusch Bernardo
+   Descrição: Estilos personalizados que complementam o Bootstrap
+   ============================================================ */
+
+/* ---------- Variáveis de cor ---------- */
+:root {
+  --verde-petshop: #2e7d50;
+  --verde-claro:   #4caf80;
+  --laranja-pet:   #f97316;
+  --bege-fundo:    #f9f6f0;
+  --cinza-texto:   #3d3d3d;
+  --branco:        #ffffff;
+}
+
+/* ---------- Base ---------- */
+body {
+  font-family: 'Nunito', sans-serif;
+  background-color: var(--bege-fundo);
+  color: var(--cinza-texto);
+}
+
+/* ---------- Navbar ---------- */
+.navbar-bomprapet {
+  background-color: var(--verde-petshop);
+}
+.navbar-bomprapet .navbar-brand,
+.navbar-bomprapet .nav-link {
+  color: var(--branco) !important;
+  font-weight: 700;
+}
+.navbar-bomprapet .nav-link:hover {
+  color: var(--laranja-pet) !important;
+}
+
+/* ---------- Carrossel ---------- */
+#carrosselPrincipal .carousel-item {
+  height: 420px;
+  background-color: #cde8d6;
+}
+#carrosselPrincipal .carousel-item img {
+  object-fit: cover;
+  height: 420px;
+  width: 100%;
+  filter: brightness(0.82);
+}
+.carousel-caption h2 {
+  font-size: 2rem;
+  font-weight: 800;
+  text-shadow: 1px 2px 6px rgba(0,0,0,0.55);
+}
+.carousel-caption p {
+  font-size: 1.1rem;
+  text-shadow: 1px 1px 4px rgba(0,0,0,0.5);
+}
+
+/* ---------- Relógio ---------- */
+#relogio-container {
+  background-color: var(--verde-petshop);
+  color: var(--branco);
+  padding: 0.6rem 1.2rem;
+  border-radius: 8px;
+  font-size: 1.05rem;
+  display: inline-block;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+}
+
+/* ---------- Cards de serviços ---------- */
+.card-servico {
+  border: none;
+  border-radius: 14px;
+  box-shadow: 0 4px 14px rgba(0,0,0,0.09);
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+.card-servico:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 22px rgba(0,0,0,0.15);
+}
+.card-servico .card-header {
+  background-color: var(--verde-petshop);
+  color: var(--branco);
+  font-weight: 700;
+  font-size: 1.15rem;
+  border-radius: 14px 14px 0 0 !important;
+}
+.badge-servico {
+  background-color: var(--laranja-pet);
+  color: #fff;
+  font-size: 0.8rem;
+  padding: 0.3em 0.6em;
+  border-radius: 20px;
+}
+
+/* ---------- Cards de produtos ---------- */
+.card-produto {
+  border: none;
+  border-radius: 12px;
+  box-shadow: 0 3px 10px rgba(0,0,0,0.08);
+  transition: transform 0.2s ease;
+}
+.card-produto:hover { transform: scale(1.03); }
+.card-produto img {
+  border-radius: 12px 12px 0 0;
+  height: 180px;
+  object-fit: cover;
+}
+
+/* ---------- Formulários ---------- */
+.secao-formulario {
+  background: var(--branco);
+  border-radius: 16px;
+  padding: 2rem 2.5rem;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+}
+.secao-formulario h2,
+.secao-formulario h3 { color: var(--verde-petshop); font-weight: 800; }
+.form-label { font-weight: 600; color: var(--cinza-texto); }
+
+/* ---------- Botão principal ---------- */
+.btn-agendar {
+  background-color: var(--verde-petshop);
+  border-color: var(--verde-petshop);
+  color: var(--branco);
+  font-weight: 700;
+  padding: 0.6rem 2rem;
+  border-radius: 30px;
+  transition: background-color 0.2s ease;
+}
+.btn-agendar:hover {
+  background-color: var(--verde-claro);
+  border-color: var(--verde-claro);
+  color: var(--branco);
+}
+
+/* ---------- Divisor ---------- */
+.divisor-verde {
+  border: none;
+  height: 3px;
+  background: linear-gradient(to right, var(--verde-petshop), var(--verde-claro), transparent);
+  margin: 1.5rem 0 2rem;
+  border-radius: 3px;
+}
+
+/* ---------- Rodapé ---------- */
+footer { background-color: var(--verde-petshop); color: var(--branco); }
+footer a { color: #b8f0cf; text-decoration: none; }
+footer a:hover { color: var(--laranja-pet); }
+
+/* ---------- Toast ---------- */
+#toast-confirmacao {
+  position: fixed;
+  bottom: 1.5rem;
+  right: 1.5rem;
+  z-index: 9999;
+  min-width: 280px;
+}
+
+/* ---------- Acessibilidade: foco visível ---------- */
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible {
+  outline: 3px solid var(--laranja-pet);
+  outline-offset: 3px;
+}
+
+/* ---------- Responsividade ---------- */
+@media (max-width: 576px) {
+  .carousel-caption h2 { font-size: 1.3rem; }
+  .secao-formulario    { padding: 1.2rem 1rem; }
+}

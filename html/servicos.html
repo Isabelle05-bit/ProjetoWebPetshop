@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<!--
+  html/servicos.html – BomPraPet PetShop | Fase 2
+  Autor: Isabelle Trampusch Bernardo
+  Base: código original da Fase 1 (servicos.html)
+  Fase 2: Bootstrap, cards e link para agendamento
+-->
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Serviços – BomPraPet</title>
+  <link rel="stylesheet" href="../assets/css/bootstrap/bootstrap.min.css">
+  <link rel="stylesheet" href="../assets/css/bootstrap/bootstrap-icons.min.css">
+  <link rel="stylesheet" href="../assets/css/nunito.css">
+  <link rel="stylesheet" href="../assets/css/estilo.css">
+</head>
+
+<body>
+
+  <!-- NAVBAR -->
+  <nav class="navbar navbar-expand-lg navbar-bomprapet"
+       role="navigation" aria-label="Menu principal">
+    <div class="container">
+      <a class="navbar-brand d-flex align-items-center gap-2" href="index.html">
+        <i class="bi bi-heart-fill" aria-hidden="true"></i>
+        PetShop BomPraPet
+      </a>
+      <button class="navbar-toggler" type="button"
+              data-bs-toggle="collapse" data-bs-target="#menuNavbar"
+              aria-controls="menuNavbar" aria-expanded="false"
+              aria-label="Abrir ou fechar menu de navegação">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="menuNavbar">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item">
+            <a class="nav-link" href="index.html">
+              <i class="bi bi-house-fill" aria-hidden="true"></i> Início
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="servicos.html">
+              <i class="bi bi-scissors" aria-hidden="true"></i> Serviços
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="agendamento.html">
+              <i class="bi bi-calendar-check-fill" aria-hidden="true"></i> Agendamento
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="cadastro.html">
+              <i class="bi bi-person-plus-fill" aria-hidden="true"></i> Cadastro
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+
+  <!-- CONTEÚDO PRINCIPAL -->
+  <main id="conteudo-principal" tabindex="-1" class="container my-5">
+
+    <h1 class="fw-bold text-center mb-1" style="color:var(--verde-petshop)">
+      <i class="bi bi-scissors" aria-hidden="true"></i> Serviços do PetShop
+    </h1>
+    <hr class="divisor-verde">
+    <p class="text-center text-muted mb-4">
+      Oferecemos serviços especializados com tele-busca ou entrega no local.
+      Agende pelo site!
+    </p>
+
+
+    <!-- Cards de serviços (Fase 2 – Bootstrap) -->
+    <div class="row row-cols-1 row-cols-md-2 g-4 mb-5">
+
+
+      <!-- Banho -->
+      <div class="col">
+        <div class="card card-servico h-100" role="article" aria-label="Serviço de Banho">
+          <div class="card-header">
+            <i class="bi bi-droplet-fill" aria-hidden="true"></i> Banho
+          </div>
+          <div class="card-body">
+            <p class="card-text">
+              Banho completo com shampoo e condicionador de qualidade,
+              secagem e escovação incluídas.
+            </p>
+            <ul class="list-unstyled">
+              <li>
+                <i class="bi bi-check-circle-fill text-success" aria-hidden="true"></i>
+                Valor: <strong>R$ 50,00</strong>
+              </li>
+              <li>
+                <i class="bi bi-check-circle-fill text-success" aria-hidden="true"></i>
+                Tele-busca: <strong>Sim</strong>
+              </li>
+              <li>
+                <i class="bi bi-check-circle-fill text-success" aria-hidden="true"></i>
+                Entrega no local: <strong>Sim</strong>
+              </li>
+            </ul>
+            <span class="badge-servico">Banho</span>
+          </div>
+          <div class="card-footer bg-transparent border-0">
+            <a href="agendamento.html?servico=banho" class="btn btn-agendar w-100"
+               aria-label="Agendar serviço de Banho">
+              <i class="bi bi-calendar-plus" aria-hidden="true"></i> Agendar Banho
+            </a>
+          </div>
+        </div>
+      </div>
+
+
+      <!-- Tosa -->
+      <div class="col">
+        <div class="card card-servico h-100" role="article" aria-label="Serviço de Tosa">
+          <div class="card-header">
+            <i class="bi bi-scissors" aria-hidden="true"></i> Tosa
+          </div>
+          <div class="card-body">
+            <p class="card-text">
+              Tosa profissional com corte personalizado para o seu pet,
+              realizada por tosadores experientes.
+            </p>
+            <ul class="list-unstyled">
+              <li>
+                <i class="bi bi-check-circle-fill text-success" aria-hidden="true"></i>
+                Valor: <strong>R$ 70,00</strong>
+              </li>
+              <li>
+                <i class="bi bi-check-circle-fill text-success" aria-hidden="true"></i>
+                Tele-busca: <strong>Sim</strong>
+              </li>
+              <li>
+                <i class="bi bi-check-circle-fill text-success" aria-hidden="true"></i>
+                Entrega no local: <strong>Sim</strong>
+              </li>
+            </ul>
+            <span class="badge-servico">Tosa</span>
+          </div>
+          <div class="card-footer bg-transparent border-0">
+            <a href="agendamento.html?servico=tosa" class="btn btn-agendar w-100"
+               aria-label="Agendar serviço de Tosa">
+              <i class="bi bi-calendar-plus" aria-hidden="true"></i> Agendar Tosa
+            </a>
+          </div>
+        </div>
+      </div>
+
+
+    </div>
+
+
+    <!-- Aviso sobre agendamento -->
+    <div class="alert alert-success d-flex align-items-start gap-3" role="alert">
+      <i class="bi bi-info-circle-fill fs-4 mt-1" aria-hidden="true"></i>
+      <div>
+        <strong>Como funciona o agendamento?</strong><br>
+        Escolha <em>tele-busca</em> (buscamos seu pet em casa e devolvemos após o serviço)
+        ou <em>entrega no local</em> (você traz e busca no petshop).
+        Selecione o dia e horário pelo calendário e pronto!
+      </div>
+    </div>
+
+  </main>
+
+
+  <!-- RODAPÉ -->
+  <footer class="py-4 mt-4">
+    <div class="container text-center">
+      <p class="mb-1">
+        <i class="bi bi-heart-fill" aria-hidden="true"></i>
+        <strong>PetShop BomPraPet</strong>
+      </p>
+      <p class="mb-1 small">
+        <a href="mailto:comercial@BomPraPet.com">comercial@BomPraPet.com</a>
+      </p>
+      <p class="mb-0 small opacity-75">Aluna: Isabelle Trampusch Bernardo &copy; 2025</p>
+    </div>
+  </footer>
+
+  <script src="../js/bootstrap.bundle.min.js"></script>
+  <script src="../js/script.js" defer></script>
+
+</body>
+</html>

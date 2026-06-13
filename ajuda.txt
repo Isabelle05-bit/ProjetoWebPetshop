@@ -1,9 +1,0 @@
-Projeto de sistema web para petshop.
-
-Funcionalidades:
-- Visualização de produtos
-- Visualização de serviços
-- Navegação entre páginas
-
-Tecnologia utilizada:
-- HTML
